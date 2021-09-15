@@ -54,12 +54,12 @@
             <select class="form-select form-select-sm"(change)="selectChangeHandler($event,group)" aria-label=".form-select-sm example">
               <option [value]= "value.name"  *ngFor = "let value of dropdownvalue">{{value.name}}</option>
           </select> 
-          <input type="text" name ='status' [(ngModel)] = 'group.status' class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
+          <input type="text" name ='status' [(ngModel)] = 'group.status' class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  >
         </div> 
       
         <div class="input-group mb-3" >
           <span class="input-group-text" id="CrDate">date*</span>
-          <input type="date" name ='Crdate' value="" [(ngModel)] = "group.Crdate" (ngModelChange)="group.Crdate = $event" class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+          <input type="date" name ='Crdate' value=""  [(ngModel)] = 'group.Crdate' class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
         </div> 
       </div>  
       <div class="modal-footer">
