@@ -16,7 +16,7 @@ export class AppComponent {
 
  addbuttonData=true;
  editbuttonData =false;
- submitted: boolean = false;
+ disable = false;
  @ViewChild('closebutton') closebutton:any;
  @ViewChild('valueEdit') valueEdit:any
  optionalgroup=[{
@@ -27,7 +27,7 @@ export class AppComponent {
    action:''
  }]
 
- dropdownvalue =[{"name":"Active"},{"name":"Inactive"}]
+ dropdownvalue =[{"name":"InActive"},{"name":"Active"}]
 
   constructor(private _todoservices : ToDoService) { }
 
@@ -35,11 +35,11 @@ export class AppComponent {
     this._todoservices.jsondata().subscribe((data)=>{
       this.details = data;
     });
-  
   }
   modelopen(){
     this.editbuttonData=false;
    this.addbuttonData=true;
+   this.disable = false;
   }
   selectChangeHandler(event:any,row:any){
     debugger
@@ -49,6 +49,7 @@ export class AppComponent {
   EditData(row:any)
   {
    debugger
+   this.disable = true;
    this.editbuttonData=true;
    this.addbuttonData=false;
    this.optionalgroup[0].Id= row.Id

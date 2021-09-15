@@ -39,7 +39,7 @@
 
         <div class="input-group mb-3">
           <span class="input-group-text" id="ID"> Add Id*</span>
-          <input type="text" name ='Id' [(ngModel)] = 'group.Id'class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"   required>
+          <input  [disabled]="disable"  type="text" name ='Id' [(ngModel)] = 'group.Id'class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"   required>
          
         </div>  
 
@@ -52,14 +52,14 @@
         <div class="input-group mb-3">
           <span class="input-group-text" id="Status">Add status*</span>         
             <select class="form-select form-select-sm"(change)="selectChangeHandler($event,group)" aria-label=".form-select-sm example">
-              <option [value]= "value.name" *ngFor = "let value of dropdownvalue">{{value.name}}</option>
+              <option [value]= "value.name"  *ngFor = "let value of dropdownvalue">{{value.name}}</option>
           </select> 
           <input type="text" name ='status' [(ngModel)] = 'group.status' class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  required>
         </div> 
       
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" >
           <span class="input-group-text" id="CrDate">date*</span>
-          <input type="date" name ='Crdate' placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31" [(ngModel)] = 'group.Crdate' class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+          <input type="date" name ='Crdate' value="" [(ngModel)] = "group.Crdate" (ngModelChange)="group.Crdate = $event" class="form-control"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
         </div> 
       </div>  
       <div class="modal-footer">
