@@ -7,13 +7,7 @@ import { ToDoService } from './to-do.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  details: any;
-//  Id: number | undefined;
-//  taskName: any;
-//  Crdate: any;
-//  status: any
-//  action:any;
-
+ details: any;
  addbuttonData=true;
  editbuttonData =false;
  disable = false;
@@ -60,6 +54,11 @@ export class AppComponent {
   }
   Popupmodel(i:any,group:any){
     debugger
+    for(let i=0;i<this.details.length;i++)
+    {
+      if(this.details[i].Id == group.Id)
+      alert("Id is already stored in database")
+    }
     let  values ={'Id':group.Id,'taskName':group.taskName,'action':group.action,'status':group.status,'Crdate':group.Crdate}
     this.details.push(values)
     this. optionalgroup=[{
